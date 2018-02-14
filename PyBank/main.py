@@ -15,17 +15,12 @@ totMonths = 0
 totRev = 0
 lmRev = 0
 revChg = 0
-revChgLst = []
-monChgLst = []
+revChgLst = [] #create a list to store the monthly rev changes for average
 minMonRev = 0
 maxMonRev = 0
 avgMonRevChg = 0
-grtRevChg =["",0]
-lstRevChg =["",9999999999999999999999]
-
-# Lists to store data
-month = []
-monthRevenue = []
+grtRevChg =["",0] #create a list to store greatest rev change and date
+lstRevChg =["",9999999999999999999999] #create a list to store greatest decrease and date
 
 
 #Open the file and then read the file
@@ -40,7 +35,6 @@ with open(bankBudget_csv, newline="") as csvfile:
         revChg = int(row["Revenue"]) - lmRev #change in rev = revenue - lstmonths rev
         lmRev = int(row["Revenue"]) #set last months revenue to this month
         revChgLst = revChgLst + [revChg] #add the rev change to the list
-        monChgLst = monChgLst + [row["Date"]] #add the date to the list
         
         #figure out the biggest increase
         if (revChg > grtRevChg[1]):
