@@ -40,7 +40,7 @@
 import re # from instuctions 
 
 #filename of the input file
-inputFile = "raw_data/paragraph_1.txt"
+inputFile = "raw_data/paragraph_2.txt"
 
 
 #variables to work with
@@ -64,11 +64,24 @@ wordCount = len(wordArray)
 sentenceArray = re.split("(?<=[.!?]) +", text)  #would have never found this without the hint
 sentenceCount = len(sentenceArray)
 
+#calculate letter count per work
+#avgWord = wordArray
+#list1 = ['foo', 'bar', 'bob', 'jess', 'google', 'alphabet']
+total = 0
+for i in wordArray:
+    total += len(i)
+avgLtrCnt = float(total) / float(len(wordArray))
+
+#calculate average sentence length
+total = 0
+for i in sentenceArray:
+    total += len(i)
+avgSntLen = float(total) / float(len(sentenceArray))
 
 
 print("\nParagraph Analysis")
-print("\n_________________________________")
-print("\n" + str(wordCount))
-print("\n" + str(sentenceCount))
-
-
+print("__________________________________________________________")
+print("Approximate word count: " + str(wordCount))
+print("Approximate sentence count: " + str(sentenceCount))
+print("Average letter per word count: " + str(avgLtrCnt))
+print("Average words per sentence count: " + str(avgSntLen))

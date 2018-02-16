@@ -1,6 +1,7 @@
 #PyBank Script
 import os
 import csv
+import numpy as np
 
 #Get the filename to open
 fileName = "budget_data_1.csv"
@@ -20,7 +21,7 @@ minMonRev = 0
 maxMonRev = 0
 avgMonRevChg = 0
 grtRevChg =["",0] #create a list to store greatest rev change and date
-lstRevChg =["",9999999999999999999999] #create a list to store greatest decrease and date
+lstRevChg =["",np.infty] #create a list to store greatest decrease and date
 
 
 #Open the file and then read the file
